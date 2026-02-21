@@ -1,0 +1,7 @@
+C:\Users\ypron\source\repos\ADO\ADO\bin\Debug\ADO.exe.config
+C:\Users\ypron\source\repos\ADO\ADO\bin\Debug\ADO.exe
+C:\Users\ypron\source\repos\ADO\ADO\bin\Debug\ADO.pdb
+C:\Users\ypron\source\repos\ADO\ADO\obj\Debug\ADO.csproj.AssemblyReference.cache
+C:\Users\ypron\source\repos\ADO\ADO\obj\Debug\ADO.csproj.CoreCompileInputs.cache
+C:\Users\ypron\source\repos\ADO\ADO\obj\Debug\ADO.exe
+C:\Users\ypron\source\repos\ADO\ADO\obj\Debug\ADO.pdb
