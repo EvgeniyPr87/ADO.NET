@@ -17,11 +17,61 @@ namespace ADO
             this.connection_string = connection_string;
             this.connection = new SqlConnection(connection_string);
         }
-        public void Select(string fields, string tables , string condition ="")
+        public void Select(string fields, string tables, string condition = "")
         {
             string cmd = $"SELECT {fields} FROM {tables}";
             if (condition != "") cmd += $" WHERE {condition}";
             cmd += ";";
+            Select(cmd);
+            //connection.Open();       //Открываем соединение
+
+            //SqlCommand command = new SqlCommand(cmd, connection);
+            //SqlDataReader reader = command.ExecuteReader(); //создается ридер
+            //while (reader.Read())
+            //{
+            //    //Console.WriteLine($"{reader[0]}\t{reader[1]}\t{reader[2]}");
+            //    for (int i = 0; i < reader.FieldCount; i++)
+            //    {
+            //        Console.Write(reader[i].ToString().PadRight(28));
+            //    }
+            //    Console.WriteLine();
+            //}
+            //reader.Close();            // если был создан ридер !!!обязательно закрываем закрываем ридер
+            //connection.Close();      //закрываем соединение
+        }
+
+        public void Insert(string table, string values)
+        {
+            string cmd = $"INSERT INTO {table} VALUES ({values})";
+            Insert(cmd);
+            //connection.Open();
+
+            //SqlCommand command = new SqlCommand(cmd, connection);
+            //command.ExecuteNonQuery();
+
+            //connection.Close();
+        }
+
+        public void Update(string table, string field, string value, string condition = "")
+        {
+            string cmd = $"UPDATE {table} SET {field} = N'{value}'";
+            if (condition != "") cmd += $" WHERE {condition}";
+            cmd += ";";
+            connection.Open();
+            SqlCommand command = new SqlCommand(cmd, connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void Insert(string cmd)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(cmd, connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public void Select(string cmd)
+        {
             connection.Open();       //Открываем соединение
 
             SqlCommand command = new SqlCommand(cmd, connection);
@@ -39,27 +89,31 @@ namespace ADO
             connection.Close();      //закрываем соединение
         }
 
-        public void Insert(string table, string values)
+
+        public object Scalar(string cmd)
         {
-            string cmd = $"INSERT INTO {table} VALUES ({values})";
-
-            connection.Open();
-
             SqlCommand command = new SqlCommand(cmd, connection);
-            command.ExecuteNonQuery();
-
+            connection.Open();
+            object value = command.ExecuteScalar();
+            //int value = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
+            return value;
         }
 
-        public void Update(string table, string  field, string value, string condition = "")
+        public string GetPrimaryKeyColumn(string table)
         {
-            string cmd = $"UPDATE {table} SET {field} = {value}";
-            if (condition != "") cmd += $" WHERE {condition}";
-            cmd += ";";
-            connection.Open();
-            SqlCommand command = new SqlCommand(cmd, connection);
-            command.ExecuteNonQuery();
-            connection.Close();
+            return (string)Scalar($"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE\r\nWHERE CONSTRAINT_NAME =(SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE TABLE_NAME=N'{table}' AND CONSTRAINT_TYPE=N'PRIMARY KEY');");
         }
+        
+        public int GetLastPrimaryKey(string table)
+        {
+            return Convert.ToInt32(Scalar($"SELECT MAX({GetPrimaryKeyColumn(table)}) FROM {table}"));
+        }
+        public int GetNextPrimaryKey(string table)
+        {
+            return GetLastPrimaryKey(table)+1;
+        }
+
+
     }
 }
