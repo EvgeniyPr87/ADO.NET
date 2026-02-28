@@ -17,8 +17,11 @@ namespace ADO
             this.connection_string = connection_string;
             this.connection = new SqlConnection(connection_string);
         }
-        public void Select(string cmd)
+        public void Select(string fields, string tables , string condition ="")
         {
+            string cmd = $"SELECT {fields} FROM {tables}";
+            if (condition != "") cmd += $" WHERE {condition}";
+            cmd += ";";
             connection.Open();       //Открываем соединение
 
             SqlCommand command = new SqlCommand(cmd, connection);
@@ -34,7 +37,29 @@ namespace ADO
             }
             reader.Close();            // если был создан ридер !!!обязательно закрываем закрываем ридер
             connection.Close();      //закрываем соединение
+        }
 
+        public void Insert(string table, string values)
+        {
+            string cmd = $"INSERT INTO {table} VALUES ({values})";
+
+            connection.Open();
+
+            SqlCommand command = new SqlCommand(cmd, connection);
+            command.ExecuteNonQuery();
+
+            connection.Close();
+        }
+
+        public void Update(string table, string  field, string value, string condition = "")
+        {
+            string cmd = $"UPDATE {table} SET {field} = {value}";
+            if (condition != "") cmd += $" WHERE {condition}";
+            cmd += ";";
+            connection.Open();
+            SqlCommand command = new SqlCommand(cmd, connection);
+            command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }
