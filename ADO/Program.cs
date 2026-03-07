@@ -31,9 +31,10 @@ namespace ADO
             //connector.Insert("Directors",$"{ connector.GetNextPrimaryKey("Directors")},N 'Besson', N'Luc'");
             //connector.Update("Directors", "first_name", "Quentin", "last_name=N'Tarantino'");
             //connector.Select("*", "Directors");
-            connector.Update("UPDATE Directors SET last_name=N'Lettich', first_name=N'Sheldon' WHERE director_id=6");
-            connector.Select(cmd);
-
+            //connector.Update("UPDATE Directors SET last_name=N'Lettich', first_name=N'Sheldon' WHERE director_id=6");
+            //connector.Select(cmd);
+            Console.WriteLine(connector.GetPrimaryKey("SELECT director_id FROM Directors WHERE last_name=N'Cameron' AND first_name=N'James'"));
+            Console.WriteLine(connector.GetPrimaryKey("Directors", " last_name, first_name "," Cameron , James "));
         } 
     }
 }

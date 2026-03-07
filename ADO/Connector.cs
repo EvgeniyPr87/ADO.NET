@@ -65,15 +65,33 @@ namespace ADO
         public void Insert(string cmd)
         {
             connection.Open();
-            string safeCmd = $"IF NOT EXISTS ({GetCheckCondition(cmd)}) {cmd}";
-            SqlCommand command = new SqlCommand(safeCmd, connection);
+            SqlCommand command = new SqlCommand(cmd, connection);
             command.ExecuteNonQuery();
             connection.Close();
         }
 
-        private string GetCheckCondition(string insertCmd)
+        public object GetPrimaryKey(string cmd)
         {
-            return "SELECT 1 FROM Table";
+            SqlCommand command = new SqlCommand(cmd, connection);
+            connection.Open();
+            object primary_key = command.ExecuteScalar();
+            connection.Close();
+            return primary_key;
+        }
+
+        public object GetPrimaryKey(string table, string fields, string values)
+        {
+            string[] s_fields = fields.Split(',');
+            string[] s_values = values.Split(',');
+            if (s_fields.Length != s_values.Length) return null;
+            string condition = "";
+            for (int i = 0; i < s_values.Length; i++)
+            {
+                condition += $"{s_fields[i].Trim()}=N'{s_values[i].Trim()}'";
+                if (i != s_values.Length - 1) condition += " AND ";
+            }
+            string cmd = $"SELECT {GetPrimaryKeyColumn(table)} FROM {table} WHERE {condition}";
+            return Scalar(cmd);
         }
 
         public void Select(string cmd)

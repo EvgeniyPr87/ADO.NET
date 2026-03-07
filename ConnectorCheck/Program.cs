@@ -18,6 +18,8 @@ namespace ConnectorCheck
             Connector. Connector connection = new Connector.Connector (connection_string);
 
             connection.Select("SELECT * FROM Directors");
+
+            //connection.Insert("\"Directors\", \"6, N'T', N'Quen'");
         }
     }
 }
