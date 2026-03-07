@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using System.Data.SqlClient;
-
-namespace ADO
+namespace Connector
 {
-    internal class Connector
+    public class Connector
     {
         string connection_string;
         SqlConnection connection;
@@ -65,7 +64,7 @@ namespace ADO
 
         public string GetTablesFromInsert(string cmd)
         {
-            string[] parts = cmd.Split( ' ', '(', ')' );
+            string[] parts = cmd.Split(' ', '(', ')');
             return parts[1];
         }
 
@@ -154,14 +153,14 @@ namespace ADO
         {
             return (string)Scalar($"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE\r\nWHERE CONSTRAINT_NAME =(SELECT CONSTRAINT_NAME FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE TABLE_NAME=N'{table}' AND CONSTRAINT_TYPE=N'PRIMARY KEY');");
         }
-        
+
         public int GetLastPrimaryKey(string table)
         {
             return Convert.ToInt32(Scalar($"SELECT MAX({GetPrimaryKeyColumn(table)}) FROM {table}"));
         }
         public int GetNextPrimaryKey(string table)
         {
-            return GetLastPrimaryKey(table)+1;
+            return GetLastPrimaryKey(table) + 1;
         }
 
         public void Update(string cmd)
@@ -173,4 +172,6 @@ namespace ADO
         }
 
     }
-}
+
+    }
+

@@ -1,0 +1,10 @@
+C:\Users\ypron\source\repos\ADO\CheckConnector\bin\Debug\CheckConnector.exe.config
+C:\Users\ypron\source\repos\ADO\CheckConnector\bin\Debug\CheckConnector.exe
+C:\Users\ypron\source\repos\ADO\CheckConnector\bin\Debug\CheckConnector.pdb
+C:\Users\ypron\source\repos\ADO\CheckConnector\bin\Debug\Connector.dll
+C:\Users\ypron\source\repos\ADO\CheckConnector\bin\Debug\Connector.pdb
+C:\Users\ypron\source\repos\ADO\CheckConnector\obj\Debug\CheckConnector.csproj.AssemblyReference.cache
+C:\Users\ypron\source\repos\ADO\CheckConnector\obj\Debug\CheckConnector.csproj.CoreCompileInputs.cache
+C:\Users\ypron\source\repos\ADO\CheckConnector\obj\Debug\CheckCon.E0A90134.Up2Date
+C:\Users\ypron\source\repos\ADO\CheckConnector\obj\Debug\CheckConnector.exe
+C:\Users\ypron\source\repos\ADO\CheckConnector\obj\Debug\CheckConnector.pdb

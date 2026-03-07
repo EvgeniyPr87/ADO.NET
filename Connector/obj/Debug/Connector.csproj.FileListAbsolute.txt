@@ -1,0 +1,6 @@
+C:\Users\ypron\source\repos\ADO\Connector\bin\Debug\Connector.dll
+C:\Users\ypron\source\repos\ADO\Connector\bin\Debug\Connector.pdb
+C:\Users\ypron\source\repos\ADO\Connector\obj\Debug\Connector.csproj.AssemblyReference.cache
+C:\Users\ypron\source\repos\ADO\Connector\obj\Debug\Connector.csproj.CoreCompileInputs.cache
+C:\Users\ypron\source\repos\ADO\Connector\obj\Debug\Connector.dll
+C:\Users\ypron\source\repos\ADO\Connector\obj\Debug\Connector.pdb
