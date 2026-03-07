@@ -52,22 +52,28 @@ namespace ADO
             //connection.Close();
         }
 
-        public void Update(string table, string field, string value, string condition = "")
-        {
-            string cmd = $"UPDATE {table} SET {field} = N'{value}'";
-            if (condition != "") cmd += $" WHERE {condition}";
-            cmd += ";";
-            connection.Open();
-            SqlCommand command = new SqlCommand(cmd, connection);
-            command.ExecuteNonQuery();
-            connection.Close();
-        }
+        //public void Update(string table, string field, string value, string condition = "")
+        //{
+        //    string cmd = $"UPDATE {table} SET {field} = N'{value}'";
+        //    if (condition != "") cmd += $" WHERE {condition}";
+        //    cmd += ";";
+        //    connection.Open();
+        //    SqlCommand command = new SqlCommand(cmd, connection);
+        //    command.ExecuteNonQuery();
+        //    connection.Close();
+        //}
         public void Insert(string cmd)
         {
             connection.Open();
-            SqlCommand command = new SqlCommand(cmd, connection);
+            string safeCmd = $"IF NOT EXISTS ({GetCheckCondition(cmd)}) {cmd}";
+            SqlCommand command = new SqlCommand(safeCmd, connection);
             command.ExecuteNonQuery();
             connection.Close();
+        }
+
+        private string GetCheckCondition(string insertCmd)
+        {
+            return "SELECT 1 FROM Table";
         }
 
         public void Select(string cmd)
@@ -114,6 +120,13 @@ namespace ADO
             return GetLastPrimaryKey(table)+1;
         }
 
+        public void Update(string cmd)
+        {
+            SqlCommand command = new SqlCommand(cmd, connection);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
 
     }
 }

@@ -28,11 +28,11 @@ namespace ADO
             Console.WriteLine(connector.GetNextPrimaryKey(table));
             //Console.WriteLine(connector.GetPrimaryKeyColumn("Directors"));
             //connector.Insert("Directors", "6, N'Tarantino', N'Quentin'");
-            connector.Insert("Directors",$"{ connector.GetNextPrimaryKey("Directors")},N 'Besson', N'Luc'");
+            //connector.Insert("Directors",$"{ connector.GetNextPrimaryKey("Directors")},N 'Besson', N'Luc'");
             //connector.Update("Directors", "first_name", "Quentin", "last_name=N'Tarantino'");
             //connector.Select("*", "Directors");
-            //connector.Select(cmd);
-
+            connector.Update("UPDATE Directors SET last_name=N'Lettich', first_name=N'Sheldon' WHERE director_id=6");
+            connector.Select(cmd);
 
         } 
     }
