@@ -1,0 +1,10 @@
+C:\Users\ypron\source\repos\ADO\ConnectorCheck\bin\Debug\ConnectorCheck.exe.config
+C:\Users\ypron\source\repos\ADO\ConnectorCheck\bin\Debug\ConnectorCheck.exe
+C:\Users\ypron\source\repos\ADO\ConnectorCheck\bin\Debug\ConnectorCheck.pdb
+C:\Users\ypron\source\repos\ADO\ConnectorCheck\bin\Debug\Connector.dll
+C:\Users\ypron\source\repos\ADO\ConnectorCheck\bin\Debug\Connector.pdb
+C:\Users\ypron\source\repos\ADO\ConnectorCheck\obj\Debug\ConnectorCheck.csproj.AssemblyReference.cache
+C:\Users\ypron\source\repos\ADO\ConnectorCheck\obj\Debug\ConnectorCheck.csproj.CoreCompileInputs.cache
+C:\Users\ypron\source\repos\ADO\ConnectorCheck\obj\Debug\Connecto.3A7A2F7C.Up2Date
+C:\Users\ypron\source\repos\ADO\ConnectorCheck\obj\Debug\ConnectorCheck.exe
+C:\Users\ypron\source\repos\ADO\ConnectorCheck\obj\Debug\ConnectorCheck.pdb
