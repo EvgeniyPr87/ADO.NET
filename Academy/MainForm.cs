@@ -20,10 +20,15 @@ namespace Academy
             InitializeComponent();
             connector = new DBtools.Connector("Data Source=LAPTOP-5H1KDVCM\\SQLEXPRESS;Initial Catalog=SPU_411_Import;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //connector = new DBtools.Connector("Data Source=LAPTOP-5H1KDVCM\\SQLEXPRESS;Initial Catalog=SPU_411_Import;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnet Failover=False");
+            
+           //toolStripStatusLabel.Text = $"Количество напрвлений обучения: {connector.Scalar("SELECT COUNT(*) FROM Directions)}";
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
             dgvDirections.DataSource = connector.Select("SELECT * FROM Directions");
 
-           toolStripStatusLabel.Text = $"Количество напрвлений обучения: {dgvDirections.RowCount-1}";
-           //toolStripStatusLabel.Text = $"Количество напрвлений обучения: {connector.Scalar("SELECT COUNT(*) FROM Directions)}";
+            toolStripStatusLabel.Text = $"Количество напрвлений обучения: {dgvDirections.RowCount - 1}";
         }
     }
 }
