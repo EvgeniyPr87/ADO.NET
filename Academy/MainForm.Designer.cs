@@ -37,7 +37,9 @@
             this.tabPageDisciplines = new System.Windows.Forms.TabPage();
             this.tabPageTeachers = new System.Windows.Forms.TabPage();
             this.dgvDirections = new System.Windows.Forms.DataGridView();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.tabPageDirections.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDirections)).BeginInit();
             this.SuspendLayout();
@@ -79,9 +81,11 @@
             // statusStrip
             // 
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip.Location = new System.Drawing.Point(0, 596);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 592);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1097, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1097, 26);
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -118,6 +122,7 @@
             // 
             // dgvDirections
             // 
+            this.dgvDirections.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDirections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDirections.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDirections.Location = new System.Drawing.Point(3, 3);
@@ -126,6 +131,12 @@
             this.dgvDirections.RowTemplate.Height = 24;
             this.dgvDirections.Size = new System.Drawing.Size(1083, 583);
             this.dgvDirections.TabIndex = 0;
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(85, 20);
+            this.toolStripStatusLabel.Text = "StatusLabel";
             // 
             // MainForm
             // 
@@ -138,6 +149,8 @@
             this.Name = "MainForm";
             this.Text = "Academy SPU_411";
             this.tabControl.ResumeLayout(false);
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.tabPageDirections.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDirections)).EndInit();
             this.ResumeLayout(false);
@@ -155,6 +168,7 @@
         private System.Windows.Forms.TabPage tabPageDisciplines;
         private System.Windows.Forms.TabPage tabPageTeachers;
         private System.Windows.Forms.DataGridView dgvDirections;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
     }
 }
 
