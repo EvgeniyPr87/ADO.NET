@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Connector
+namespace DBtools
 {
     public class Connector
     {
@@ -22,7 +22,7 @@ namespace Connector
             string cmd = $"SELECT {fields} FROM {tables}";
             if (condition != "") cmd += $" WHERE {condition}";
             cmd += ";";
-            
+
             return Select(cmd);
             //connection.Open();       //Открываем соединение
 
@@ -183,6 +183,4 @@ namespace Connector
         }
 
     }
-
-    }
-
+}

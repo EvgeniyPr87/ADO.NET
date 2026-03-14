@@ -36,7 +36,10 @@
             this.tabPageDirections = new System.Windows.Forms.TabPage();
             this.tabPageDisciplines = new System.Windows.Forms.TabPage();
             this.tabPageTeachers = new System.Windows.Forms.TabPage();
+            this.dgvDirections = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
+            this.tabPageDirections.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDirections)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -84,6 +87,7 @@
             // 
             // tabPageDirections
             // 
+            this.tabPageDirections.Controls.Add(this.dgvDirections);
             this.tabPageDirections.Location = new System.Drawing.Point(4, 25);
             this.tabPageDirections.Name = "tabPageDirections";
             this.tabPageDirections.Padding = new System.Windows.Forms.Padding(3);
@@ -112,6 +116,17 @@
             this.tabPageTeachers.Text = "Teachers";
             this.tabPageTeachers.UseVisualStyleBackColor = true;
             // 
+            // dgvDirections
+            // 
+            this.dgvDirections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDirections.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDirections.Location = new System.Drawing.Point(3, 3);
+            this.dgvDirections.Name = "dgvDirections";
+            this.dgvDirections.RowHeadersWidth = 51;
+            this.dgvDirections.RowTemplate.Height = 24;
+            this.dgvDirections.Size = new System.Drawing.Size(1083, 583);
+            this.dgvDirections.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -123,6 +138,8 @@
             this.Name = "MainForm";
             this.Text = "Academy SPU_411";
             this.tabControl.ResumeLayout(false);
+            this.tabPageDirections.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDirections)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,6 +154,7 @@
         private System.Windows.Forms.TabPage tabPageDirections;
         private System.Windows.Forms.TabPage tabPageDisciplines;
         private System.Windows.Forms.TabPage tabPageTeachers;
+        private System.Windows.Forms.DataGridView dgvDirections;
     }
 }
 

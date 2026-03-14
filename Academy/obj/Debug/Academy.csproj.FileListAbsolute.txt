@@ -8,3 +8,6 @@ C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.csproj.GenerateResourc
 C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.csproj.CoreCompileInputs.cache
 C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.exe
 C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.pdb
+C:\Users\ypron\source\repos\ADO\Academy\bin\Debug\DBtools.dll
+C:\Users\ypron\source\repos\ADO\Academy\bin\Debug\DBtools.pdb
+C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.csproj.Up2Date

@@ -1,0 +1,6 @@
+C:\Users\ypron\source\repos\ADO\DBtools\bin\Debug\DBtools.dll
+C:\Users\ypron\source\repos\ADO\DBtools\bin\Debug\DBtools.pdb
+C:\Users\ypron\source\repos\ADO\DBtools\obj\Debug\DBtools.csproj.AssemblyReference.cache
+C:\Users\ypron\source\repos\ADO\DBtools\obj\Debug\DBtools.csproj.CoreCompileInputs.cache
+C:\Users\ypron\source\repos\ADO\DBtools\obj\Debug\DBtools.dll
+C:\Users\ypron\source\repos\ADO\DBtools\obj\Debug\DBtools.pdb
