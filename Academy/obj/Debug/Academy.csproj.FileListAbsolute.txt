@@ -1,0 +1,10 @@
+C:\Users\ypron\source\repos\ADO\Academy\bin\Debug\Academy.exe.config
+C:\Users\ypron\source\repos\ADO\Academy\bin\Debug\Academy.exe
+C:\Users\ypron\source\repos\ADO\Academy\bin\Debug\Academy.pdb
+C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.csproj.AssemblyReference.cache
+C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.MainForm.resources
+C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.Properties.Resources.resources
+C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.csproj.GenerateResource.cache
+C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.csproj.CoreCompileInputs.cache
+C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.exe
+C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.pdb
