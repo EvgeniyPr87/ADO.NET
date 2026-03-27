@@ -65,6 +65,10 @@ namespace Academy
             LoadDataToComboBox(cbStudentsGroup);
             LoadDataToComboBox(cbStudentsDirection);
             LoadDataToComboBox(cbDisciplinesDirection);
+            //LoadDataToComboBox(cbGroupDirection);
+            LoadDataToComboBox(cbGroup);
+            //LoadDataToComboBox(cbDisciplines);
+
         }
 
         [DllImport("kernel32.dll")]
@@ -97,6 +101,51 @@ namespace Academy
             tables[i].DataSource = connector.Select(queries[i].ToString());
             toolStripStatusLabel.Text = $"{statusbarSignatures[i]}:{tables[i].RowCount - 1}";
         }
+
+        private void cbGroupsDirection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbGroupsDirection.SelectedIndex !=-1)
+            tables[1].DataSource = connector.Select(queries[1].ToString() + $" AND directions={d_trees["d_directions"][cbGroupsDirection.SelectedItem.ToString()]}");
+        }
+
+        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (cbGroupsDirection.SelectedIndex != -1)
+            //    tables[1].DataSource = connector.Select(queries[1].ToString() + $" AND directions={d_trees["d_directions"][cbGroupsDirection.SelectedItem.ToString()]}");
+
+            if (cbGroup.SelectedIndex == -1)
+            {
+                RefreshCurrent();
+            } 
+            else
+            {
+                tables[1].DataSource = connector.Select(queries[1].ToString() + $" AND directions={d_trees["d_directions"][cbGroup.SelectedItem.ToString()]}");
+            }
+               
+        }
+
+        private void RefreshCurrent()
+        {
+            int currentTabIndex = tabControl.SelectedIndex;
+            tables[currentTabIndex].DataSource = connector.Select(queries[currentTabIndex].ToString());
+            toolStripStatusLabel.Text = $"{statusbarSignatures[currentTabIndex]}:" +
+                $"{tables[currentTabIndex].RowCount - 1}";
+        }
+
+        private void btnCliar_Click(object sender, EventArgs e)
+        {
+           
+            cbGroupsDirection.SelectedIndex = -1;
+            cbStudentsGroup.SelectedIndex = -1;
+            cbStudentsDirection.SelectedIndex = -1;
+            cbDisciplinesDirection.SelectedIndex = -1;
+            cbGroup.SelectedIndex = -1;
+
+            RefreshCurrent();
+
+            toolStripStatusLabel.Text = "Фильтры сброшены";
+        }
+
 
         ///////////////////////////////
 
