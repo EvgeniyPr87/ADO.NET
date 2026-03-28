@@ -88,15 +88,6 @@ namespace Academy
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             Console.WriteLine($" {(sender as TabControl).SelectedIndex}\t{tabControl.SelectedTab.Text }");
-            //dgvDirections.DataSource = connector.Select("SELECT * FROM Directions");
-            //toolStripStatusLabel.Text = $"Количество напрвлений обучения: {dgvDirections.RowCount - 1}";
-            //(sender as TabControl).SelectedTab.
-
-            /* DataGridView dgv = (this.GetType().GetField($"dgv{tabControl.SelectedTab.Text}").GetValue(this) as DataGridView);
-              dgv.DataSource =
-                 connector.Select($"SELECT * FROM { tabControl.SelectedTab.Text}");
-
-              toolStripStatusLabel.Text = $"Количество записей: {dgv.RowCount - 1}"; */
             int i = tabControl.SelectedIndex;
             tables[i].DataSource = connector.Select(queries[i].ToString());
             toolStripStatusLabel.Text = $"{statusbarSignatures[i]}:{tables[i].RowCount - 1}";
@@ -104,8 +95,11 @@ namespace Academy
 
         private void cbGroupsDirection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbGroupsDirection.SelectedIndex !=-1)
-            tables[1].DataSource = connector.Select(queries[1].ToString() + $" AND directions={d_trees["d_directions"][cbGroupsDirection.SelectedItem.ToString()]}");
+            //if(cbGroupsDirection.SelectedIndex !=-1)
+            //tables[1].DataSource = connector.Select(queries[1].ToString() + $" AND directions={d_trees["d_directions"][cbGroupsDirection.SelectedItem.ToString()]}");
+            int i = tabControl.SelectedIndex;
+            tables[i].DataSource = connector.Select(queries[i].ToString());
+            toolStripStatusLabel.Text = $"{statusbarSignatures[i]}: {tables[i].RowCount - 1}";
         }
 
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,7 +113,10 @@ namespace Academy
             } 
             else
             {
-                tables[1].DataSource = connector.Select(queries[1].ToString() + $" AND directions={d_trees["d_directions"][cbGroup.SelectedItem.ToString()]}");
+                tables[1].DataSource = connector.Select
+                 (
+queries[1].ToString() + $" AND direction={d_trees["d_directions"][cbGroupsDirection.SelectedItem.ToString()]}"
+                 );
             }
                
         }
@@ -132,9 +129,22 @@ namespace Academy
                 $"{tables[currentTabIndex].RowCount - 1}";
         }
 
-        private void btnCliar_Click(object sender, EventArgs e)
-        {
+        //private void btnCliar_Click(object sender, EventArgs e)
+        //{
            
+        //    cbGroupsDirection.SelectedIndex = -1;
+        //    cbStudentsGroup.SelectedIndex = -1;
+        //    cbStudentsDirection.SelectedIndex = -1;
+        //    cbDisciplinesDirection.SelectedIndex = -1;
+        //    cbGroup.SelectedIndex = -1;
+
+        //    RefreshCurrent();
+
+        //    toolStripStatusLabel.Text = "Фильтры сброшены";
+        //}
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
             cbGroupsDirection.SelectedIndex = -1;
             cbStudentsGroup.SelectedIndex = -1;
             cbStudentsDirection.SelectedIndex = -1;
@@ -144,6 +154,18 @@ namespace Academy
             RefreshCurrent();
 
             toolStripStatusLabel.Text = "Фильтры сброшены";
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            AddStudent addForm = new AddStudent(connector, d_trees["d_groups"]);
+
+            // Показываем форму
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                // Если студент добавлен — обновляем таблицу студентов
+                RefreshCurrent();
+            }
         }
 
 
