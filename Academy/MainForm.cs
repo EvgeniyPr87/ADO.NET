@@ -66,9 +66,10 @@ namespace Academy
             LoadDataToComboBox(cbStudentsDirection);
             LoadDataToComboBox(cbDisciplinesDirection);
             //LoadDataToComboBox(cbGroupDirection);
-            LoadDataToComboBox(cbGroup);
+            //LoadDataToComboBox(cbGroup);
             //LoadDataToComboBox(cbDisciplines);
-
+            cbGroupsDirection.SelectedIndexChanged += new EventHandler(cbGroupsDirection_SelectedIndexChanged);
+          
         }
 
         [DllImport("kernel32.dll")]
@@ -105,7 +106,7 @@ namespace Academy
         private void cbGroupsDirection_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cbGroupsDirection.SelectedIndex !=-1)
-            tables[1].DataSource = connector.Select(queries[1].ToString() + $" AND directions={d_trees["d_directions"][cbGroupsDirection.SelectedItem.ToString()]}");
+            tables[1].DataSource = connector.Select(queries[1].ToString() + $" AND direction={d_trees["d_directions"][cbGroupsDirection.SelectedItem.ToString()]}");
         }
 
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,15 +114,11 @@ namespace Academy
             //if (cbGroupsDirection.SelectedIndex != -1)
             //    tables[1].DataSource = connector.Select(queries[1].ToString() + $" AND directions={d_trees["d_directions"][cbGroupsDirection.SelectedItem.ToString()]}");
 
-            if (cbGroup.SelectedIndex == -1)
-            {
-                RefreshCurrent();
-            } 
-            else
+            if (cbGroup.SelectedIndex != -1)
             {
                 tables[1].DataSource = connector.Select(queries[1].ToString() + $" AND directions={d_trees["d_directions"][cbGroup.SelectedItem.ToString()]}");
-            }
-               
+            } 
+             
         }
 
         private void RefreshCurrent()
@@ -146,9 +143,23 @@ namespace Academy
             toolStripStatusLabel.Text = "Фильтры сброшены";
         }
 
+        private void cbStudentsDirection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbStudentsGroup.Items.Clear();
+            d_trees["d_groups"] = connector.
+                LoadDictionary("Groups", $"direction={d_trees["d_directions"][cbStudentsDirection.SelectedItem.ToString()]}");
+            cbStudentsGroup.Items.AddRange(d_trees["d_groups"].Keys.ToArray());
 
-        ///////////////////////////////
+            dgvStudents.DataSource = connector.
+                Select(queries[0].ToString() + $" AND direction={d_trees["d_directions"][cbStudentsDirection.SelectedItem.ToString()]}");
 
+            toolStripStatusLabel.Text = $"{statusbarSignatures[0]}: {dgvStudents.RowCount - 1}";
+        }
 
+        private void cbStudentsGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvStudents.DataSource = connector
+                .Select(queries[0].ToString() + $" AND [group]={d_trees["d_groups"][cbStudentsGroup.SelectedItem.ToString()]}");
+        }
     }
 }
