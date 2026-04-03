@@ -12,6 +12,8 @@ using System.Runtime.InteropServices;
 using DBtools;
 using System.Data.SqlClient;
 
+using System.Configuration;
+
 namespace Academy
 {
     public partial class MainForm : Form
@@ -56,7 +58,9 @@ namespace Academy
             InitializeComponent();
             tables = new DataGridView[] { dgvStudents, dgvGroups,dgvDirections , dgvDisciplines, dgvTeachers };
             //AllocConsole();
-            connector = new DBtools.Connector("Data Source=LAPTOP-5H1KDVCM\\SQLEXPRESS;Initial Catalog=SPU_411_Import;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //connector = new DBtools.Connector("Data Source=LAPTOP-5H1KDVCM\\SQLEXPRESS;Initial Catalog=SPU_411_Import;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+            connector = new Connector(ConfigurationManager.ConnectionStrings["SPU_411_Import"].ConnectionString);
 
             tabControl_SelectedIndexChanged(tabControl, null);
             d_trees = new Dictionary<string, Dictionary<string, int>>();
@@ -131,7 +135,7 @@ namespace Academy
 
         private void btnCliar_Click(object sender, EventArgs e)
         {
-           
+
             cbGroupsDirection.SelectedIndex = -1;
             cbStudentsGroup.SelectedIndex = -1;
             cbStudentsDirection.SelectedIndex = -1;
@@ -160,6 +164,12 @@ namespace Academy
         {
             dgvStudents.DataSource = connector
                 .Select(queries[0].ToString() + $" AND [group]={d_trees["d_groups"][cbStudentsGroup.SelectedItem.ToString()]}");
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            StudentForm form = new StudentForm();
+            form.ShowDialog();
         }
     }
 }
