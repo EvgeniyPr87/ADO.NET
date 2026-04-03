@@ -104,6 +104,9 @@ namespace DBtools
 
         public object GetPrimaryKey(string table, string fields, string values)
         {
+            if (fields.ToLower().Contains("photo"))
+                return null;
+
             string[] s_fields = fields.Split(',');
             string[] s_values = values.Split(',');
             if (s_fields.Length != s_values.Length) return null;
@@ -111,11 +114,13 @@ namespace DBtools
             for (int i = 0; i < s_values.Length; i++)
             {
                 if (s_fields[i].Contains("_id")) continue;
+                if (s_fields[i].Trim().ToLower() == "photo") continue;
                 string value = s_values[i].Trim();
                 condition += (value.Length > 1 && value[0] != 'N' && value[1] != '\'')
                    ? $"{s_fields[i].Trim()}=N'{s_values[i].Trim()}'"
                    : $"{s_fields[i].Trim()}={s_values[i].Trim()}";
-                if (i != s_values.Length - 1) condition += " AND ";
+                if (i != s_values.Length - 1 && condition != "")
+                    condition += " AND ";
             }
             string cmd = $"SELECT {GetPrimaryKeyColumn(table)} FROM {table} WHERE {condition}";
             return Scalar(cmd);
