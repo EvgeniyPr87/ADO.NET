@@ -16,5 +16,10 @@ namespace Academy
         {
             InitializeComponent();
         }
+
+        private void labePhone_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

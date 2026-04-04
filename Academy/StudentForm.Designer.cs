@@ -48,7 +48,7 @@
             // 
             this.labelGroup.AutoSize = true;
             this.labelGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGroup.Location = new System.Drawing.Point(113, 245);
+            this.labelGroup.Location = new System.Drawing.Point(110, 331);
             this.labelGroup.Name = "labelGroup";
             this.labelGroup.Size = new System.Drawing.Size(98, 29);
             this.labelGroup.TabIndex = 11;
@@ -59,7 +59,7 @@
             this.cbStudentsGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStudentsGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cbStudentsGroup.FormattingEnabled = true;
-            this.cbStudentsGroup.Location = new System.Drawing.Point(214, 244);
+            this.cbStudentsGroup.Location = new System.Drawing.Point(214, 331);
             this.cbStudentsGroup.Name = "cbStudentsGroup";
             this.cbStudentsGroup.Size = new System.Drawing.Size(327, 33);
             this.cbStudentsGroup.TabIndex = 12;
@@ -68,7 +68,7 @@
             // 
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.Location = new System.Drawing.Point(349, 370);
+            this.buttonOK.Location = new System.Drawing.Point(349, 389);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(192, 39);
             this.buttonOK.TabIndex = 13;
@@ -80,7 +80,7 @@
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCancel.Location = new System.Drawing.Point(566, 370);
+            this.buttonCancel.Location = new System.Drawing.Point(566, 389);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(192, 39);
             this.buttonCancel.TabIndex = 14;
@@ -91,13 +91,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 428);
+            this.ClientSize = new System.Drawing.Size(780, 440);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.cbStudentsGroup);
             this.Controls.Add(this.labelGroup);
             this.Name = "StudentForm";
             this.Text = "Student";
+            this.Controls.SetChildIndex(this.rtbLastName, 0);
+            this.Controls.SetChildIndex(this.rtbFirstName, 0);
+            this.Controls.SetChildIndex(this.rtbMiddleName, 0);
+            this.Controls.SetChildIndex(this.rtbPhone, 0);
+            this.Controls.SetChildIndex(this.rtbEmail, 0);
             this.Controls.SetChildIndex(this.labelBirthDate, 0);
             this.Controls.SetChildIndex(this.dtpBirthDate, 0);
             this.Controls.SetChildIndex(this.pictureBoxPhoto, 0);
