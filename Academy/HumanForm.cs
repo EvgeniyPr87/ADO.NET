@@ -28,6 +28,7 @@ namespace Academy
         {
             OpenFileDialog photoDialog = new OpenFileDialog();
             photoDialog.ShowDialog();
+            if(photoDialog.FileName !="")
             pictureBoxPhoto.Image = Image.FromFile(photoDialog.FileName);
         }
     }

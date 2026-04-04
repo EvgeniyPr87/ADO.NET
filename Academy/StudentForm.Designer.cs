@@ -44,6 +44,10 @@
             this.buttonPhoto.Location = new System.Drawing.Point(566, 302);
             this.buttonPhoto.Size = new System.Drawing.Size(192, 43);
             // 
+            // labelID
+            // 
+            this.labelID.Location = new System.Drawing.Point(157, 402);
+            // 
             // labelGroup
             // 
             this.labelGroup.AutoSize = true;
@@ -98,6 +102,7 @@
             this.Controls.Add(this.labelGroup);
             this.Name = "StudentForm";
             this.Text = "Student";
+            this.Controls.SetChildIndex(this.labelID, 0);
             this.Controls.SetChildIndex(this.rtbLastName, 0);
             this.Controls.SetChildIndex(this.rtbFirstName, 0);
             this.Controls.SetChildIndex(this.rtbMiddleName, 0);
