@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageStudents = new System.Windows.Forms.TabPage();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.btnCliar = new System.Windows.Forms.Button();
             this.cbStudentsDirection = new System.Windows.Forms.ComboBox();
             this.cbStudentsGroup = new System.Windows.Forms.ComboBox();
@@ -49,7 +50,7 @@
             this.dgvTeachers = new System.Windows.Forms.DataGridView();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonAddTeacher = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPageStudents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
@@ -93,6 +94,17 @@
             this.tabPageStudents.TabIndex = 0;
             this.tabPageStudents.Text = "Students";
             this.tabPageStudents.UseVisualStyleBackColor = true;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAdd.Location = new System.Drawing.Point(970, 6);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(111, 29);
+            this.buttonAdd.TabIndex = 6;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // btnCliar
             // 
@@ -242,6 +254,7 @@
             // 
             // tabPageTeachers
             // 
+            this.tabPageTeachers.Controls.Add(this.buttonAddTeacher);
             this.tabPageTeachers.Controls.Add(this.cbDisciplines);
             this.tabPageTeachers.Controls.Add(this.dgvTeachers);
             this.tabPageTeachers.Location = new System.Drawing.Point(4, 25);
@@ -291,16 +304,16 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(85, 20);
             this.toolStripStatusLabel.Text = "StatusLabel";
             // 
-            // buttonAdd
+            // buttonAddTeacher
             // 
-            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAdd.Location = new System.Drawing.Point(970, 6);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(111, 29);
-            this.buttonAdd.TabIndex = 6;
-            this.buttonAdd.Text = "Добавить";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAddTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddTeacher.Location = new System.Drawing.Point(970, 6);
+            this.buttonAddTeacher.Name = "buttonAddTeacher";
+            this.buttonAddTeacher.Size = new System.Drawing.Size(111, 29);
+            this.buttonAddTeacher.TabIndex = 7;
+            this.buttonAddTeacher.Text = "Добавить";
+            this.buttonAddTeacher.UseVisualStyleBackColor = true;
+            this.buttonAddTeacher.Click += new System.EventHandler(this.buttonAddTeacher_Click);
             // 
             // MainForm
             // 
@@ -353,6 +366,7 @@
         private System.Windows.Forms.ComboBox cbDisciplines;
         private System.Windows.Forms.Button btnCliar;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonAddTeacher;
     }
 }
 

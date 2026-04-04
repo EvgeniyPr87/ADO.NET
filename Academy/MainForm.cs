@@ -171,5 +171,11 @@ namespace Academy
             StudentForm form = new StudentForm();
             form.ShowDialog();
         }
+
+        private void buttonAddTeacher_Click(object sender, EventArgs e)
+        {
+            TeachersForm form = new TeachersForm();
+            form.ShowDialog();
+        }
     }
 }
