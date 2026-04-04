@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
+
 namespace Academy
 {
     public partial class HumanForm : Form
@@ -20,6 +22,13 @@ namespace Academy
         private void labePhone_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonPhoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog photoDialog = new OpenFileDialog();
+            photoDialog.ShowDialog();
+            pictureBoxPhoto.Image = Image.FromFile(photoDialog.FileName);
         }
     }
 }

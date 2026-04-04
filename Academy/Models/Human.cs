@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Drawing;
+using System.IO;
 
 namespace Academy.Models
 {
@@ -33,6 +34,13 @@ namespace Academy.Models
         this.phone = phone;
         this.photo = photo;
         }
+        public byte[] SerializePhoto()
+        {
+            MemoryStream ms = new MemoryStream();
+            photo.Save(ms, photo.RawFormat);
+            return ms.ToArray();
+        }
+        
         public virtual string GetNames()
         {
             return $"last_name,first_name,middle_name,birth_date,email,phone";

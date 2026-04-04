@@ -142,6 +142,7 @@
             this.pictureBoxPhoto.Location = new System.Drawing.Point(566, 16);
             this.pictureBoxPhoto.Name = "pictureBoxPhoto";
             this.pictureBoxPhoto.Size = new System.Drawing.Size(245, 350);
+            this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPhoto.TabIndex = 9;
             this.pictureBoxPhoto.TabStop = false;
             // 
@@ -154,6 +155,7 @@
             this.buttonPhoto.TabIndex = 10;
             this.buttonPhoto.Text = "Обзор";
             this.buttonPhoto.UseVisualStyleBackColor = true;
+            this.buttonPhoto.Click += new System.EventHandler(this.buttonPhoto_Click);
             // 
             // rtbPhone
             // 
