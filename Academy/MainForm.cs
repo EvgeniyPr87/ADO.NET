@@ -59,7 +59,7 @@ namespace Academy
             tables = new DataGridView[] { dgvStudents, dgvGroups,dgvDirections , dgvDisciplines, dgvTeachers };
             //AllocConsole();
             //connector = new DBtools.Connector("Data Source=LAPTOP-5H1KDVCM\\SQLEXPRESS;Initial Catalog=SPU_411_Import;Integrated Security=True;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-
+            this.dgvTeachers.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTeachers_CellMouseDoubleClick);
             connector = new Connector(ConfigurationManager.ConnectionStrings["SPU_411_Import"].ConnectionString);
 
             tabControl_SelectedIndexChanged(tabControl, null);
@@ -178,6 +178,23 @@ namespace Academy
             int i = Convert.ToInt32(dgvStudents.Rows[e.RowIndex].Cells[0].Value);
             StudentForm form = new StudentForm(i);
             form.ShowDialog();
+        }
+        private void dgvTeachers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)  
+            {
+                int id = Convert.ToInt32(dgvTeachers.Rows[e.RowIndex].Cells[0].Value);
+                TeacherForm form = new TeacherForm(id);  
+                form.ShowDialog();
+                tabControl_SelectedIndexChanged(tabControl, null);  
+            }
+        }
+
+        private void buttonAddTeacher_Click(object sender, EventArgs e)
+        {
+            TeacherForm form = new TeacherForm();
+            form.ShowDialog();
+            tabControl_SelectedIndexChanged(tabControl, null);
         }
     }
 }

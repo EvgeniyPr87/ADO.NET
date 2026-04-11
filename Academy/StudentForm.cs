@@ -20,14 +20,8 @@ namespace Academy
 
             cbStudentsGroup.DataSource = DataBase.Connector.Select("*", "Groups");
             cbStudentsGroup.DisplayMember = "group_name";
-            cbStudentsGroup.ValueMember = "group_id";
-
-            //rtbLastName.Text = "Тупенко";
-            //rtbFirstName.Text = "Петр";
-            //rtbMiddleName.Text = "Алексеевич";
-
+            cbStudentsGroup.ValueMember = "group_id"; 
         }
-
         private void buttonOK_Click(object sender, EventArgs e)
         {
              //TODO

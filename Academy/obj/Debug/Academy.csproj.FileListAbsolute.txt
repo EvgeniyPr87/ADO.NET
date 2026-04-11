@@ -13,3 +13,4 @@ C:\Users\ypron\source\repos\ADO\Academy\bin\Debug\DBtools.pdb
 C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.csproj.Up2Date
 C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.HumanForm.resources
 C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.StudentForm.resources
+C:\Users\ypron\source\repos\ADO\Academy\obj\Debug\Academy.TeacherForm.resources

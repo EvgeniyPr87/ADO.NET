@@ -46,6 +46,7 @@
             this.cbDisciplinesDirection = new System.Windows.Forms.ComboBox();
             this.dgvDisciplines = new System.Windows.Forms.DataGridView();
             this.tabPageTeachers = new System.Windows.Forms.TabPage();
+            this.buttonAddTeacher = new System.Windows.Forms.Button();
             this.cbDisciplines = new System.Windows.Forms.ComboBox();
             this.dgvTeachers = new System.Windows.Forms.DataGridView();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
@@ -256,6 +257,7 @@
             // 
             // tabPageTeachers
             // 
+            this.tabPageTeachers.Controls.Add(this.buttonAddTeacher);
             this.tabPageTeachers.Controls.Add(this.cbDisciplines);
             this.tabPageTeachers.Controls.Add(this.dgvTeachers);
             this.tabPageTeachers.Location = new System.Drawing.Point(4, 25);
@@ -265,6 +267,17 @@
             this.tabPageTeachers.TabIndex = 4;
             this.tabPageTeachers.Text = "Teachers";
             this.tabPageTeachers.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddTeacher
+            // 
+            this.buttonAddTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddTeacher.Location = new System.Drawing.Point(943, 0);
+            this.buttonAddTeacher.Name = "buttonAddTeacher";
+            this.buttonAddTeacher.Size = new System.Drawing.Size(138, 36);
+            this.buttonAddTeacher.TabIndex = 3;
+            this.buttonAddTeacher.Text = "Добавить";
+            this.buttonAddTeacher.UseVisualStyleBackColor = true;
+            this.buttonAddTeacher.Click += new System.EventHandler(this.buttonAddTeacher_Click);
             // 
             // cbDisciplines
             // 
@@ -283,6 +296,7 @@
             this.dgvTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeachers.Location = new System.Drawing.Point(1, 43);
             this.dgvTeachers.Name = "dgvTeachers";
+            this.dgvTeachers.ReadOnly = true;
             this.dgvTeachers.RowHeadersWidth = 51;
             this.dgvTeachers.RowTemplate.Height = 24;
             this.dgvTeachers.Size = new System.Drawing.Size(1086, 502);
@@ -356,6 +370,7 @@
         private System.Windows.Forms.ComboBox cbDisciplines;
         private System.Windows.Forms.Button btnCliar;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonAddTeacher;
     }
 }
 

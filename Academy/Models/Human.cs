@@ -21,7 +21,7 @@ namespace Academy.Models
         public Image photo;
         public Human
             (
-            int id, string last_name, string first_name, string middle_name, string birth_day,
+            int id, string last_name, string first_name, string middle_name, string birth_date,
             string email, string phone, Image photo
             )
         {

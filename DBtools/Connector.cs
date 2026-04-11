@@ -87,14 +87,16 @@ namespace DBtools
 
         public void Insert(string cmd)
         {
-            Console.WriteLine(GetTablesFromInsert(cmd));
-            Console.WriteLine(GetFieldsFromInsert(cmd));
-            Console.WriteLine(GetValuesFromInsert(cmd));
+            //Console.WriteLine(GetTablesFromInsert(cmd));
+            //Console.WriteLine(GetFieldsFromInsert(cmd));
+            //Console.WriteLine(GetValuesFromInsert(cmd));
             if (GetPrimaryKey(GetTablesFromInsert(cmd), GetFieldsFromInsert(cmd), GetValuesFromInsert(cmd)) != null) return;
-            connection.Open();
-            SqlCommand command = new SqlCommand(cmd, connection);
+                connection.Open();
+          using ( SqlCommand command = new SqlCommand(cmd, connection))
+            { 
             command.ExecuteNonQuery();
-            connection.Close();
+                connection.Close();
+            }
         }
 
         public object GetPrimaryKey(string cmd)
@@ -156,12 +158,14 @@ namespace DBtools
 
         public object Scalar(string cmd)
         {
-            SqlCommand command = new SqlCommand(cmd, connection);
-            connection.Open();
+            using (SqlCommand command = new SqlCommand(cmd, connection))
+            {
+                connection.Open();
             object value = command.ExecuteScalar();
             //int value = Convert.ToInt32(command.ExecuteScalar());
             connection.Close();
-            return value;
+                return value;
+            }
         }
 
         public string GetPrimaryKeyColumn(string table)
@@ -180,10 +184,12 @@ namespace DBtools
 
         public void Update(string cmd)
         {
-            SqlCommand command = new SqlCommand(cmd, connection);
-            connection.Open();
+            using(SqlCommand command = new SqlCommand(cmd, connection))
+            {
+                connection.Open();
             command.ExecuteNonQuery();
-            connection.Close();
+                connection.Close();
+            }
         }
 
         public Dictionary<string, int> LoadDictionary(string table, string condition = "")
@@ -234,6 +240,15 @@ namespace DBtools
             reader.Close();
             connection.Close();
             return photo;
+        }
+        public void ExecuteNonQuery(string cmd)
+        {
+            using (SqlCommand command = new SqlCommand(cmd, connection))
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
         }
     }
 }
